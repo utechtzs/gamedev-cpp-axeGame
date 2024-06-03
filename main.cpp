@@ -2,14 +2,15 @@
 
 int main()
 {
-	int width = 800;
-	int height = 600;
-	InitWindow(width, height, "My Window");
+	int x = 350;
+	int y = 200;
+	InitWindow(x, y, "My Window");
 
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
-		ClearBackground(GREEN);
+		ClearBackground(WHITE);
+		DrawCircle(x / 2, y / 2, 25, BLUE);
 		EndDrawing();
 	}
 }

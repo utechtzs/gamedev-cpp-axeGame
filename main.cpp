@@ -2,6 +2,7 @@
 
 int main()
 {
+	int XY_INCREMENT = 5;
 	// window dimensions
 	int width = 350;
 	int height = 200;
@@ -10,30 +11,31 @@ int main()
 	// circle dimensions
 	int circle_x = width / 2;
 	int circle_y = height / 2;
+	int radius = 25;
 
-	SetTargetFPS(60);
+	SetTargetFPS(159);
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
 		ClearBackground(WHITE);
 
-		DrawCircle(circle_x, circle_y, 25, BLUE);
+		DrawCircle(circle_x, circle_y, radius, BLUE);
 
-		if (IsKeyDown(KEY_D))
+		if ((IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) && circle_x > 0 + radius)
 		{
-			circle_x += 10;
+			circle_x -= XY_INCREMENT;
 		}
-		else if (IsKeyDown(KEY_A))
+		else if ((IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) && circle_x < width - radius)
 		{
-			circle_x -= 10;
+			circle_x += XY_INCREMENT;
 		}
-		else if (IsKeyDown(KEY_W))
+		else if ((IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) && circle_y > 0 + radius)
 		{
-			circle_y -= 10;
+			circle_y -= XY_INCREMENT;
 		}
-		else if (IsKeyDown(KEY_S))
+		else if ((IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) && circle_y < height - radius)
 		{
-			circle_y += 10;
+			circle_y += XY_INCREMENT;
 		}
 		else if (IsKeyDown(KEY_SPACE))
 		{

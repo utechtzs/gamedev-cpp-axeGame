@@ -6,7 +6,7 @@ int main()
 	int height = 600;
 	InitWindow(width, height, "My Window");
 
-	while (true)
+	while (!WindowShouldClose())
 	{
 		BeginDrawing();
 		ClearBackground(GREEN);

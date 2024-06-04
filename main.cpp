@@ -5,7 +5,7 @@ int main() {
 	// window dimensions
 	int width = 800;
 	int height = 450;
-	InitWindow(width, height, "My Window");
+	InitWindow(width, height, "Axe Game");
 
 	// circle dimensions
 	int circle_x = width / 4;
@@ -26,7 +26,10 @@ int main() {
 		ClearBackground(WHITE);
 
 		if (collision) {
-			DrawText("Game Over!", width / 2, height / 2, 20, RED);
+			DrawText("Game Over! Press the space bar to play again. :)", width / 4, height / 2, 20, RED);
+			if (IsKeyDown(KEY_SPACE)) {
+				collision = false;
+			}
 		} else {
 			int l_circle_x = circle_x - radius;
 			int r_circle_x = circle_x + radius;
@@ -48,6 +51,10 @@ int main() {
 				direction = -direction;
 			}
 
+			if (b_axe_y >= u_circle_y && u_axe_y <= b_circle_y && l_axe_x <= r_circle_x && r_axe_x >= l_circle_x) {
+				collision = true;
+			}
+
 			if ((IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) && circle_x > 0 + radius) {
 				circle_x -= XY_INCREMENT;
 			} else if ((IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) && circle_x < width - radius) {
@@ -63,4 +70,5 @@ int main() {
 		}
 		EndDrawing();
 	}
+	return 0;
 }

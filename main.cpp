@@ -1,7 +1,7 @@
 #include "raylib.h"
 
 int main() {
-	int XY_INCREMENT = 5;
+	const int XY_INCREMENT = 5;
 	// window dimensions
 	int width = 800;
 	int height = 450;
